@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
-    <button v-if="clickBoolean" @click="sortedEntries">Newest to Oldest</button>
-    <button v-else @click="sortedEntries">Oldest to Newest</button>
+    <button @click="sortedEntries">{{ this.buttonLabel }}</button>
     <div v-for="(entry, id) in entries" :key="id">
       <div class="entry-wrapper">
         <h2>{{entry.title}}</h2>
@@ -21,7 +20,7 @@
             entries: Array
         },
         buttonLabel: "Newest to Oldest",
-        clickBoolean: true,
+        clickBoolean: false,
         computed: {
             sortedEntries: function () {
                 let sorted = this.entries
